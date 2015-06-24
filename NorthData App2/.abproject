@@ -2,15 +2,14 @@
   "ProjectName": "NorthData App2",
   "ProjectGuid": "ca783c0f-b508-4fd6-af21-496be4c126d3",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.NorthDataApp2",
+  "AppIdentifier": "com.htmlui.NorthDataApp2",
   "DisplayName": "NorthData App2",
   "Author": "",
   "Description": "NorthData App2",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
-    "1",
-    "2"
+    "1"
   ],
   "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
@@ -19,8 +18,7 @@
     "android.permission.INTERNET"
   ],
   "DeviceOrientations": [
-    "Portrait",
-    "Landscape"
+    "Portrait"
   ],
   "AndroidHardwareAcceleration": "false",
   "iOSStatusBarStyle": "Default",
@@ -43,6 +41,9 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
+    "com.telerik.feedback",
+    "com.telerik.plugin.eqatecanalytics",
+    "nl.x-services.plugins.actionsheet@1.1.7",
     "org.apache.cordova.network-information"
   ]
 }
