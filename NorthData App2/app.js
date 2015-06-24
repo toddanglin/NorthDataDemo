@@ -1,3 +1,39 @@
+(function (g) {
+
+	var productId = "fae4997fdc1d45a38813e62cc1a09d55"; // App unique product key
+
+	// Make analytics available via the window.analytics variable
+	// Start analytics by calling window.analytics.Start()
+	var analytics = g.analytics = g.analytics || {};
+	analytics.Start = function () {
+		// Handy shortcuts to the analytics api
+		var factory = window.plugins.EqatecAnalytics.Factory;
+		var monitor = window.plugins.EqatecAnalytics.Monitor;
+		// Create the monitor instance using the unique product key for Analytics
+		var settings = factory.CreateSettings(productId);
+		settings.LoggingInterface = factory.CreateTraceLogger();
+		factory.CreateMonitorWithSettings(settings,
+			function () {
+				console.log("Monitor created");
+				// Start the monitor inside the success-callback
+				monitor.Start(function () {
+					console.log("Monitor started");
+				});
+			},
+			function (msg) {
+				console.log("Error creating monitor: " + msg);
+			}
+		);
+	};
+	analytics.Stop = function () {
+		var monitor = window.plugins.EqatecAnalytics.Monitor;
+		monitor.Stop();
+	};
+	analytics.Monitor = function () {
+		return window.plugins.EqatecAnalytics.Monitor;
+	};
+})(window);
+
 (function() {
     // store a reference to the application object that will be created
     // later on so that we can use it if need be
@@ -29,6 +65,12 @@
             if (navigator && navigator.splashscreen) {
                 navigator.splashscreen.hide();
             }
+            
+            //This is when Telerik Analytics will start tracking
+            window.analytics.Start()
+            
+			feedback.initialize('d0d058b0-1a27-11e5-a52a-79969294ea89');
+
 
             bootstrap();
         }, false);
